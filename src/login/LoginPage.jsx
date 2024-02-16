@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Logo from '../assets/snipify_ob.png'
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where, getD } from 'firebase/firestore';
 import { db } from '../Firebase'
 
 const LoginPage = () => {
@@ -21,7 +21,7 @@ const LoginPage = () => {
     try {
       if (selectedButton === 'learner') {
         const q = query(
-          collection(db, 'Learner'),
+          collection(db, 'User'),
           where('Email', '==', email),
           where('Password', '==', password)
         );
@@ -41,7 +41,7 @@ const LoginPage = () => {
         }
       } else if (selectedButton === 'skilled') {
         const q = query(
-          collection(db, 'Skilled'),
+          collection(db, 'Specialist'),
           where('Email', '==', email),
           where('Password', '==', password)
         );

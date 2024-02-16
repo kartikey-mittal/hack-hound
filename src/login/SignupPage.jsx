@@ -23,7 +23,7 @@ const SignUpPage = () => {
 
     try {
       if (selectedButton === 'learner' || selectedButton === 'skilled') {
-        const userCollection = selectedButton === 'learner' ? 'Learner' : 'Skilled';
+        const userCollection = selectedButton === 'learner' ? 'User' : 'Specialist';
 
         // Add document to Firestore
         const docRef = await addDoc(collection(db, userCollection), {
@@ -231,7 +231,7 @@ const SignUpPage = () => {
               }}
               onClick={() => handleButtonClick('learner')}
             >
-              Learner
+              User
             </div>
             <div
               style={{
@@ -240,7 +240,7 @@ const SignUpPage = () => {
               }}
               onClick={() => handleButtonClick('skilled')}
             >
-              Skilled
+              Specialist
             </div>
             <div></div>
           </div>
